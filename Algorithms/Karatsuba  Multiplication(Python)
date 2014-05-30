@@ -1,0 +1,39 @@
+# Multiplying 2 numbers using Karatsuba multipilication
+# Karatsuba MUltiplication Algorithm-
+#x = 5678
+#y = 1234
+
+# a = 56
+# b = 78
+# c = 12
+# d = 34
+
+# Steps involved -
+#  Step 1 : Compute a * c = 56 * 12 = 672
+#  Step 2 : Compute b * d = 78 * 34 = 2652
+#  Step 3 : Compute (a + b) * (c + d) = (56 + 78) *(12 + 34) = 6164
+#  Step 4 : Compute results of step 3 - step 2 - step 1 = 6164 - 2652 - 672 = 2840
+#  Step 5 : result of step 1 * 10000 + result of step 2 + result of step 4 * 100 
+#           =  672 * 10000 + 2652 + 2840 * 100 = 7006652
+
+
+# simple isn't it? -> (5678) * (1234) = 7006652
+
+
+def karatsuba(x,y):
+   
+    a = x // 100
+    b = x % 100
+    c = y // 100
+    d = y % 100
+    print a,b,c,d
+    p = a*c
+    q = b*d
+    f = (a+b)*(c+d)
+    print f
+    g = f - p - q
+    print g
+    h = p *10000 + q + g * 100
+    return h
+
+print karatsuba(5678,1234)
